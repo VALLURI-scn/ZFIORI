@@ -1,0 +1,130 @@
+@Metadata.layer: #CORE
+@Search.searchable: true
+
+@UI.headerInfo: {
+    typeName: 'Travel',
+    typeNamePlural: 'Travels',
+    title: {
+        type: #STANDARD,
+        label: 'Travels Details List Report',
+        value: 'AgencyId'
+    },
+     description: {
+        value: 'AgencyName'
+    }
+}
+
+@UI.presentationVariant: [
+  {
+    maxItems: 100
+  }
+]
+annotate view ZC_Travel with
+{
+  @UI.facet: [{
+      id: 'Travel',
+      purpose: #STANDARD,
+      position: 10,
+      label: 'Travel Details',
+      type: #IDENTIFICATION_REFERENCE
+  }
+  ,
+  {
+      id: 'BookingsTable',
+      purpose: #STANDARD,
+      position: 20,
+      label: 'Booking Details',
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_Booking'
+  }
+  ]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.identification: [{ position : 10 }]
+  @UI.lineItem: [{ position: 10 }]
+  TravelId;
+  @UI.selectionField: [{ position: 20 }]
+  @Search.defaultSearchElement: true
+  @UI: {
+            lineItem: [{ position: 20 }],
+            identification: [{ position : 20 }]
+        }
+  AgencyId;
+  @UI: {
+            lineItem: [{ position: 30 }],
+            identification: [{ position : 30 }]
+        }
+  AgencyName;
+  @UI: {
+           lineItem: [{ position: 40 }],
+           identification: [{ position : 40 }]
+       }
+  CustomerId;
+  @UI: {
+            lineItem: [{ position: 50 }],
+            identification: [{ position : 50 }]
+        }
+  CustomerName;
+  @UI: {
+            lineItem: [{ position: 60 }],
+            identification: [{ position : 60 }]
+        }
+  BeginDate;
+  @UI: {
+          lineItem: [{ position: 70 }],
+          identification: [{ position : 70 }]
+      }
+  EndDate;
+  @UI: {
+            lineItem: [{ position: 80 }],
+            identification: [{ position : 80 }]
+        }
+  BookingFee;
+  @UI: {
+           lineItem: [{ position: 90 }],
+           identification: [{ position : 90 }]
+       }
+  TotalPrice;
+  @UI: {
+            lineItem: [{ position: 100 }],
+            identification: [{ position : 100 }]
+        }
+  CurrencyCode;
+  @UI: {
+          lineItem: [{ position: 110 }],
+          identification: [{ position : 110 }]
+      }
+  Description;
+  @UI: { lineItem: [{ position: 120 }],
+  selectionField: [{ position: 120 }],
+  textArrangement: #TEXT_ONLY
+  }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'OverallStatus', name: '/DMO/I_Overall_Status_VH' } } ]
+  OverallStatus;
+  @UI: {
+            lineItem: [{ position: 130 }],
+            identification: [{ position : 130 }]
+        }
+  CreatedBy;
+  @UI: {
+           lineItem: [{ position: 140 }],
+           identification: [{ position : 140 }]
+       }
+  CreatedAt;
+  @UI: {
+           lineItem: [{ position: 150 }],
+           identification: [{ position : 150 }]
+       }
+  LastChangedBy;
+  @UI: {
+            lineItem: [{ position: 160 }],
+            identification: [{ position : 160 }]
+        }
+  LastChangedAt;
+  //  /* Associations */
+  //  _Agency;
+  //  _Booking;
+  //  _Currency;
+  //  _Customer;
+  //  _TravelStatus;
+}

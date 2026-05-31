@@ -1,0 +1,4 @@
+@EndUserText.label: 'Flight Connection'
+define service ZSD_Connection {
+  expose ZI_Connection;
+}
